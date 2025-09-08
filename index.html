@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Smart Attendance System</h1>
+            <p>Efficient QR Code-based attendance tracking</p>
+        </header>
+
+        <!-- QR Generation Section -->
+        <section class="card">
+            <h2>🔧 Generate Student QR Codes</h2>
+            <div class="input-group">
+                <input type="text" id="qr-text" placeholder="Enter student name" maxlength="50">
+                <button onclick="generateQR()" class="btn-primary">Generate QR Code</button>
+                <button onclick="generateBulkQR()" class="btn-secondary">Generate 5 Demo QRs</button>
+            </div>
+            <div id="qr-output"></div>
+        </section>
+
+        <!-- QR Scanner Section -->
+        <section class="card">
+            <h2>📷 Scan QR Code</h2>
+            <div id="qr-reader"></div>
+            <div id="qr-reader-results"></div>
+        </section>
+
+        <!-- Manual Entry Section -->
+        <section class="card">
+            <h2>✏️ Manual Entry</h2>
+            <div class="input-group">
+                <input type="text" id="student-name" placeholder="Enter student name manually" maxlength="50">
+                <button onclick="markManualAttendance()" class="btn-primary">Mark Present</button>
+            </div>
+        </section>
+
+        <!-- Attendance Display Section -->
+        <section class="card">
+            <h2>📊 Attendance Records</h2>
+            <div class="stats">
+                <span>Total Present: <strong id="attendance-count">0</strong></span>
+                <div class="action-buttons">
+                    <button onclick="addDemoStudents()" class="btn-secondary">Add Demo Students</button>
+                    <button onclick="exportAttendance()" class="btn-success">📥 Export CSV</button>
+                    <button onclick="clearAttendance()" class="btn-danger">🗑️ Clear All</button>
+                </div>
+            </div>
+            <div id="attendance-list"></div>
+        </section>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
